@@ -101,7 +101,7 @@ const FaceRegistration = () => {
       console.log("Face descriptor:", descriptor);
       console.log("Face descriptor length:", descriptor.length);
 
-      const response = await axios.post("http://localhost:5000/api/register", {
+      const response = await axios.post("https://facial-recogintion-attendance-system.onrender.com/api/register", {
         name: name.trim(),
         rollno: rollno.trim(),
         faceDescriptor: descriptor,
