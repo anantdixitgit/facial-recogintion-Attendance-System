@@ -33,7 +33,7 @@ const FaceDetector = () => {
         ]);
 
         const response = await axios.delete(
-          "http://localhost:5000/api/attendance"
+          "https://facial-recogintion-attendance-system.onrender.com/api/attendance"
         );
         console.log("here");
         if (response.status === 200) {
@@ -97,7 +97,7 @@ const FaceDetector = () => {
 
       console.log("detection successful");
 
-      const response = await axios.post("http://localhost:5000/api/recognize", {
+      const response = await axios.post("https://facial-recogintion-attendance-system.onrender.com/api/recognize", {
         descriptor,
       });
       console.log("Recognition response:", response.data);
@@ -120,7 +120,7 @@ const FaceDetector = () => {
 
   const fetchAttendance = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/attendance");
+      const res = await axios.get("https://facial-recogintion-attendance-system.onrender.com/api/attendance");
       setAttendanceList(res.data);
     } catch (err) {
       console.error("Error fetching attendance:", err);
