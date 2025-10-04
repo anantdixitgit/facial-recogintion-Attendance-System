@@ -52,11 +52,12 @@ app.post("/api/recognize", async (req, res) => {
     console.log("Loaded users:", users);
 
     // Simple Euclidean distance comparison
-    function compareDescriptors(desc1, desc2, threshold = 0.6) {
+    function compareDescriptors(desc1, desc2, threshold = 0.45) {
       if (!desc1 || !desc2 || desc1.length !== desc2.length) {
         console.log("Descriptor length mismatch or missing", desc1, desc2);
         return false;
       }
+
       let sum = 0;
       for (let i = 0; i < desc1.length; i++) {
         sum += Math.pow(desc1[i] - desc2[i], 2);
