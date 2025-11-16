@@ -16,12 +16,7 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 const url = process.env.MONGO_URI;
 
-app.use("/", (req, res) => {
-  res.status(200).json({
-    message: "home route added",
-    success: true,
-  });
-});
+
 // Register new user with face data
 app.post("/api/register", async (req, res) => {
   try {
@@ -110,6 +105,13 @@ app.delete("/api/attendance", async (req, res) => {
     console.error("Error deleting attendance records:", err);
     res.status(500).json({ error: err.message });
   }
+});
+
+app.use("/", (req, res) => {
+  res.status(200).json({
+    message: "home route added",
+    success: true,
+  });
 });
 
 const connectDB = async () => {
